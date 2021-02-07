@@ -2,6 +2,12 @@ let errorId = document.getElementById('errorId');
 let displayId = document.getElementById('displayId');
 let detailId = document.getElementById('detailId');
 const mealDetails = data => {
+    if (errorId.hasChildNodes()) {
+        errorId.removeChild(errorId.childNodes[0]);
+    }
+    while (detailId.hasChildNodes()) {
+        detailId.removeChild(detailId.firstChild);
+    }
     let detailDiv = document.createElement('div');
     const detailInfo = `
 <div class="card" style="width: 18rem;">
