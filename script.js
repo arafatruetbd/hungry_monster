@@ -27,6 +27,15 @@ const mealDetails = data => {
 
 const displayMeal = (data) => {
     if (data.meals === null) {
+        if (errorId.hasChildNodes()) {
+            errorId.removeChild(errorId.childNodes[0]);
+        }
+        while (displayId.hasChildNodes()) {
+            displayId.removeChild(displayId.firstChild);
+        }
+        while (detailId.hasChildNodes()) {
+            detailId.removeChild(detailId.firstChild);
+        }
         let errorDiv = document.createElement('div');
         const errorInfo = `
         <h3>Nothing Found</h3>
@@ -34,6 +43,15 @@ const displayMeal = (data) => {
         errorDiv.innerHTML = errorInfo;
         errorId.appendChild(errorDiv);
     } else {
+        if (errorId.hasChildNodes()) {
+            errorId.removeChild(errorId.childNodes[0]);
+        }
+        while (displayId.hasChildNodes()) {
+            displayId.removeChild(displayId.firstChild);
+        }
+        while (detailId.hasChildNodes()) {
+            detailId.removeChild(detailId.firstChild);
+        }
         data.meals.forEach(meal => {
             let displayDiv = document.createElement('div');
             displayDiv.id = `${meal.idMeal}`;
